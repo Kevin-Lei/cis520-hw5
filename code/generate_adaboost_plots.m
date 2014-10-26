@@ -2,9 +2,9 @@
 
 %% Put your written answers here.
 clear all
-answers{1} = 'Answer to 1';
-answers{2} = 'Answer to 2';
-answers{3} = 'Answer to 3';
+answers{1} = 'There is very little overfitting, because the test error is only slightly higher than that of the training error. The training error does not seem to be going towards zero.';
+answers{2} = 'The margin is getting smaller with larger T. This is because, the more iterations that we use adaboost on, the more weak classifiers we have to help us classify better. However, the margin will never go towards zero, because the data is not perfectly separable.';
+answers{3} = 'Adaboost is getting the images on the left wrong because the location the numbers were written were in are not where the weak classifers are. Increasing T would not help that much because the numbers can still be in a location such that it is hard to predict correctly. Instead, instead of picking 1 pixel, each weak classifier should pick 2x2 pixels to make it more accurate.';
 
 save('problem_answers.mat', 'answers');
 
@@ -56,7 +56,7 @@ for i = 1:3
     
     set(h(i), 'LineWidth', 2);
     set(h(i), 'Color', cols{i});
-    %line([mean(yhat) mean(yhat)], [0 1], 'LineStyle', '--', 'Color', cols{i});
+    line([mean(yhat) mean(yhat)], [0 1], 'LineStyle', '--', 'Color', cols{i});
 end
 hold off;
 
